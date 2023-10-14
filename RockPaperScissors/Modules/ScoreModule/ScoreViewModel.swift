@@ -9,8 +9,8 @@ import Foundation
 
 protocol ScoreViewModelProtocol: AnyObject {
     var playerName: String? { get }
-    var computer: String? { get }
-    var player: String? { get }
+    var computer: String { get }
+    var player: String { get }
     var computerScore: String? { get }
     var playerScore: String? { get }
     
@@ -30,16 +30,12 @@ final class ScoreViewModel: ScoreViewModelProtocol {
         }
     }
     
-    var computer: String? {
-        didSet {
-            scoreSettingsDidChange?(self)
-        }
+    var computer: String {
+        "🤖"
     }
     
-    var player: String? {
-        didSet {
-            scoreSettingsDidChange?(self)
-        }
+    var player: String {
+        "🤪"
     }
     
     var computerScore: String? {
@@ -61,8 +57,6 @@ final class ScoreViewModel: ScoreViewModelProtocol {
     
     //MARK: - Methods
     func showScoreSettings() {
-        computer = "🤖"
-        player = "🤪"
         storageManager.loadScores()
         setScore()
     }
