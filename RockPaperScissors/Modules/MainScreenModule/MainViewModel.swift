@@ -27,7 +27,7 @@ protocol MainViewModelProtocol: AnyObject {
     func showGameSettings()
     func compareResult(with yourChoice: String)
     func reloadScore()
-    func showScore(in view: Any?)
+    func showScore(from view: Any?)
 }
 
 final class MainViewModel: MainViewModelProtocol {
@@ -171,7 +171,7 @@ final class MainViewModel: MainViewModelProtocol {
         }
     }
     
-    func showScore(in view: Any?) {
+    func showScore(from view: Any?) {
         let view = view as? MainViewController
         let vc = ScoreViewController()
         

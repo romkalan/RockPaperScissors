@@ -104,7 +104,7 @@ final class MainViewController: UIViewController {
             withSize: 20,
             title: "Show Total Score",
             andAction: UIAction { [unowned self] _ in
-                viewModel.showScore(in: self)
+                viewModel.showScore(from: self)
             })
         return button
     }()
