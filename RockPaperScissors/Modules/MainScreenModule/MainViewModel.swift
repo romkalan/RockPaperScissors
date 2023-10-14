@@ -72,6 +72,7 @@ final class MainViewModel: MainViewModelProtocol {
     
     required init() {}
     
+    //MARK: - Methods
     func showGameSettings() {
         resultLabel = "Choice Rock or Paper or Scissors"
         scoreLabel = "AI - 0:0 - You"
@@ -81,7 +82,6 @@ final class MainViewModel: MainViewModelProtocol {
     
     func reloadScore() {
         buttonsIsActive = true
-        
         computerScore = 0
         yourScore = 0
         whoWon = .initial
@@ -140,29 +140,29 @@ final class MainViewModel: MainViewModelProtocol {
         
         if yourScore == 3 && yourScore > computerScore {
             resultLabel = "Congratulation, You Won Totally! 🤪"
-            scoreLabel = "AI - \(computerScore):\(yourScore) - You"
-            computerScore = 0
-            yourScore = 0
+            reloadLocalScore()
             storageManager.highPlayerScore += 1
             storageManager.savePlayerScore()
-            buttonsIsActive = false
-            reloadComputerInfo(with: "Tap Play Again", andDelay: 2)
         } else if computerScore == 3 && computerScore > yourScore {
             resultLabel = "Unfortunately, You Lost! 🥹"
-            scoreLabel = "AI - \(computerScore):\(yourScore) - You"
-            computerScore = 0
-            yourScore = 0
+            reloadLocalScore()
             storageManager.highComputerScore += 1
             storageManager.saveComputerScore()
-            buttonsIsActive = false
-            reloadComputerInfo(with: "Tap play again for restart game", andDelay: 2)
         } else {
             scoreLabel = "AI - \(computerScore):\(yourScore) - You"
             reloadComputerInfo(with: "Choice Rock or Paper or Scissors", andDelay: 1)
         }
     }
     
-    func reloadComputerInfo(with text: String, andDelay: Int) {
+    private func reloadLocalScore() {
+        scoreLabel = "AI - \(computerScore):\(yourScore) - You"
+        computerScore = 0
+        yourScore = 0
+        buttonsIsActive = false
+        reloadComputerInfo(with: "Tap play again for restart game", andDelay: 2)
+    }
+    
+    private func reloadComputerInfo(with text: String, andDelay: Int) {
         DispatchQueue.main.asyncAfter(
             deadline: .now() + .seconds(andDelay)) { [unowned self] in
                 self.resultLabel = text

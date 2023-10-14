@@ -26,7 +26,6 @@ final class ScoreViewController: UIViewController {
     
     private lazy var playerNameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hello, Player!"
         label.font = UIFont.systemFont(ofSize: 30)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,7 +33,6 @@ final class ScoreViewController: UIViewController {
     
     private lazy var computer: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        label.text = "🤖"
         label.font = UIFont.systemFont(ofSize: 100)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -58,7 +56,6 @@ final class ScoreViewController: UIViewController {
     
     private lazy var player: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        label.text = "🤪"
         label.font = UIFont.systemFont(ofSize: 100)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

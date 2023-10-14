@@ -55,11 +55,11 @@ final class ScoreViewModel: ScoreViewModelProtocol {
     }
     
     private let storageManager = StorageManager.shared
-    
     var scoreSettingsDidChange: ((ScoreViewModelProtocol) -> Void)?
     
     required init() {}
     
+    //MARK: - Methods
     func showScoreSettings() {
         computer = "🤖"
         player = "🤪"

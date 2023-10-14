@@ -12,7 +12,7 @@ final class StorageManager {
     
     private let userDefaults = UserDefaults.standard
     private let playerKey = "playerScore"
-    private let playerNameKey = "player"
+    private let playerNameKey = "playerName"
     private let computerKey = "computerScore"
     
     var highPlayerScore: Int = 0
@@ -44,6 +44,6 @@ final class StorageManager {
         highComputerScore = userDefaults.integer(forKey: computerKey)
         
         guard userDefaults.value(forKey: playerNameKey) != nil else { return }
-        playerName = userDefaults.string(forKey: playerNameKey) ?? ""
+        playerName = userDefaults.string(forKey: playerNameKey) ?? "Player"
     }
 }

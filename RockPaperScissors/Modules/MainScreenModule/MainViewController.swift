@@ -36,7 +36,6 @@ final class MainViewController: UIViewController {
     
     private let resultLabel: UILabel = {
         let label = UILabel()
-        label.text = "Choice Rock or Paper or Scissors"
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -46,7 +45,6 @@ final class MainViewController: UIViewController {
     
     private let scoreLabel: UILabel = {
         let label = UILabel()
-        label.text = "AI - 0:0 - You"
         label.font = UIFont.systemFont(ofSize: 20)
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -56,7 +54,6 @@ final class MainViewController: UIViewController {
     
     private lazy var computerChoiсe: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
-        label.text = "🤖"
         label.font = UIFont.systemFont(ofSize: 100)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -120,7 +117,7 @@ final class MainViewController: UIViewController {
         viewModel.showGameSettings()
     }
     
-    // MARK: - Methods
+    // MARK: - setup Button
     private func setupButton(
         withSize size: CGFloat,
         title: String,
@@ -141,15 +138,6 @@ final class MainViewController: UIViewController {
             button.translatesAutoresizingMaskIntoConstraints = false
             return button
         }
-    
-    // MARK: - Navigation
-//    func showScore() {
-//        let vc = ScoreViewController()
-//        
-//        if !(navigationController!.topViewController! is ScoreViewController) {
-//            self.navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
 }
 
 // MARK: - Setup UI
