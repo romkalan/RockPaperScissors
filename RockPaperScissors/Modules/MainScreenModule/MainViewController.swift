@@ -11,24 +11,24 @@ final class MainViewController: UIViewController {
     
     var viewModel: MainViewModelProtocol! {
         didSet {
-            self.viewModel.gameSettingsDidChange = { [unowned self] viewModel in
-                self.resultLabel.text = viewModel.resultLabel
-                self.scoreLabel.text = viewModel.scoreLabel
-                self.computerChoiсe.text = viewModel.computerChoiсe
+            viewModel.gameSettingsDidChange = { [unowned self] viewModel in
+                resultLabel.text = viewModel.resultLabel
+                scoreLabel.text = viewModel.scoreLabel
+                computerChoiсe.text = viewModel.computerChoiсe
                 
-                self.rockChoice.isEnabled = viewModel.buttonsIsActive
-                self.paperChoice.isEnabled = viewModel.buttonsIsActive
-                self.scissorsChoice.isEnabled = viewModel.buttonsIsActive
+                rockChoice.isEnabled = viewModel.buttonsIsActive
+                paperChoice.isEnabled = viewModel.buttonsIsActive
+                scissorsChoice.isEnabled = viewModel.buttonsIsActive
                 
                 switch viewModel.whoWon {
                 case .player:
-                    self.resultLabel.textColor = .systemGreen
+                    resultLabel.textColor = .systemGreen
                 case .computer:
-                    self.resultLabel.textColor = .red
+                    resultLabel.textColor = .red
                 case .equally:
-                    self.resultLabel.textColor = .gray
+                    resultLabel.textColor = .gray
                 case .initial:
-                    self.resultLabel.textColor = .label
+                    resultLabel.textColor = .label
                 }
             }
         }

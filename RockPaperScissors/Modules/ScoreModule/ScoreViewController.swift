@@ -11,14 +11,13 @@ final class ScoreViewController: UIViewController {
     
     var viewModel: ScoreViewModelProtocol! {
         didSet {
-            self.viewModel.scoreSettingsDidChange = { [unowned self] viewModel in
-                self.computer.text = viewModel.computer
-                self.player.text = viewModel.player
-                
-                self.playerNameLabel.text = viewModel.playerName
-                self.playerScoreLabel.text = viewModel.playerScore
-                self.computerScoreLabel.text = viewModel.computerScore
+            viewModel.scoreSettingsDidChange = { [unowned self] viewModel in
+                playerNameLabel.text = viewModel.playerName
+                playerScoreLabel.text = viewModel.playerScore
+                computerScoreLabel.text = viewModel.computerScore
             }
+            computer.text = viewModel.computer
+            player.text = viewModel.player
         }
     }
     
