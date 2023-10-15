@@ -1,6 +1,6 @@
 # RockPaperScissors
 
-This is training Game app = Rock-Paper-Scissors
+This is training Game app = Rock-Paper-Scissors (Test task)
 
 Architecture: MVVM
 
